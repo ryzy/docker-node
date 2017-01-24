@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# Acknowledgement
+# Found on mark-adams/docker-chromium-xvfb
+
 export DISPLAY=:99
-export XVFB_WHD=${XVFB_WHD:-1600x1000x24}
+export SCREEN_RESOLUTION=1600x1000x24
 
 terminate_procs() {
   kill -TERM $PID_CH
@@ -11,7 +14,7 @@ terminate_procs() {
 trap terminate_procs SIGINT SIGTERM
 
 # Start Xvfb
-Xvfb :99 -ac -screen 0 $XVFB_WHD -nolisten tcp &
+Xvfb :99 -ac -screen 0 $SCREEN_RESOLUTION -nolisten tcp &
 PID_XVFB=$!
 
 # Start Chrome browser and pass all arguments to it
