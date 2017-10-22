@@ -11,6 +11,7 @@ RUN apt-get update \
   && apt-get update \
 
   `# Install basic tools, node, yarn, Chrome and Java (required by Selenium WebDriver)...` \
-  && apt-get install -y git vim nodejs yarn chromium chromium-l10n xvfb default-jre
+  && apt-get install -y git vim nodejs yarn chromium chromium-l10n xvfb default-jre \
+    libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound
 
 ADD google-chrome.sh /usr/local/bin/google-chrome
